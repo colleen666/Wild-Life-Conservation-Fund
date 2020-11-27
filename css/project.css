@@ -1,0 +1,112 @@
+.container {
+    padding: 2em;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.flip-card {
+    background-color: transparent;
+    margin: auto;
+    width: 600px;
+    height: 500px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    margin: auto;
+    width: 95%;
+    height: 95%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card:hover .flip-card-inner .flip-card-front img {
+    opacity: 0;
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: #7FC7A7;
+    color: black;
+}
+
+.flip-card-front img {
+    position: absolute;
+    display: block;
+    width: 90%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.flip-card-back {
+    background-color: #7FC7A7;
+    color: black;
+    transform: rotateY(180deg);
+}
+
+.flip-card-back h1 {
+    padding: 1em;
+}
+
+.flip-card-back p {
+    padding: 1.5em;
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
+    .flip-card {
+        background-color: transparent;
+        width: 500px;
+        height: 350px;
+        perspective: 1000px;
+    }
+
+    .flip-card-back h1 {
+        padding: 0em;
+        margin: 0.5em;
+    }
+    
+    .flip-card-back p {
+        padding: 0.5em;
+        margin: 0em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        margin-left: 0%;
+        margin-right: 0%;
+        grid-template-columns: auto;
+    }
+
+    .flip-card {
+        background-color: transparent;
+        width: 400px;
+        height: 300px;
+        perspective: 1000px;
+    }
+}
